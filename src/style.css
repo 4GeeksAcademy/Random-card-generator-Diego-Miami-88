@@ -3,3 +3,37 @@
 body{
     background: white;
 }
+#card-container .playing-card {
+    background-color: white;
+    width: 250px;
+    height: 350px;
+    border-radius: 15px;
+    position: relative; /* Essential for corner positioning */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card-corner {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    line-height: 1;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.top-left {
+    top: 10px;
+    left: 10px;
+}
+
+.bottom-right {
+    bottom: 10px;
+    right: 10px;
+    transform: rotate(180deg); /* Flips the rank/suit upside down */
+}
+
+.card-center {
+    font-size: 7rem;
+}
