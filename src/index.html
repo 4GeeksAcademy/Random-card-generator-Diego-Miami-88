@@ -14,31 +14,79 @@
 
 <body class="bg-black">
   <!-- Write your HTML code here, you can delete everything withing the body tags -->
-  <div class="d-flex justify-content-center align-items-center mt-3">
-    <button type="button " class="btn btn-info" onClick="window.location.reload();"
+  <div class="d-flex justify-content-center align-items-center mt-3 m-3">
+    <!-- we change click for even to prevent the window from refreshing -->
+    <button type="button " class="btn btn-info" event="window.location.reload();"
       class=" p-4 bg-text-dark">Refresh</button>
   </div>
-  <div class="container-fluid text-center text-white">
-    <h1 class="mt-5">Random Card Generator</h1>
-    <div class="d-flex justify-content-center align-items-center mt-5">
-      <!-- card will be generate here -->
-      <div id="card-container" class="card" style="width: 10rem;">
-        <div class="card-body">
-          <h5 class="card-title" id="card-title">Card Title</h5>
-          <p class="card-text" id="card-text">.</p>
-          <div>
-            <img src="your-image.jpg" class="position-absolute bottom-0 end-0 m-2"
-              style="width: 50px; transform: scaleX(-1);" alt="Flipped icon">
-          </div>
+  <div class="d-flex justify-content-center align-items-center mt-3 m-3 gap-3"
+    style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUFSId_zr9KubZV567Fwvn2UDqswLg8jfN9Q&s'); background-size: fit;">
+    <div id="card-container-fluid" class="card shadow text-white"
+      style="width: 200px; height: 300px; border-radius: 15px; margin: auto; overflow: hidden; position: relative;">
+
+      <!-- Background Image -->
+      <img src="https://eldenring.wiki.fextralife.com/file/Elden-Ring/malenia,-blade-of-miquella.jpg" class="card-img"
+        alt="Car Background" style="height: 100%; object-fit: cover;">
+
+      <!-- Content Overlay -->
+      <div class="card-img-overlay p-2 d-flex flex-column justify-content-between">
+
+        <!-- Top corner index -->
+        <div class="card-corner top-left">
+          <span class="rank"></span>
+          <span class="suit"></span>
+        </div>
+
+        <!-- Large center suit -->
+        <div class="card-center text-center flex-grow-1 d-flex align-items-center justify-content-center">
+          <h1 style="font-size: 4rem;">♠</h1>
+        </div>
+
+        <!-- Flipped bottom corner index -->
+        <div class="card-corner bottom-right text-end" style="transform: rotate(180deg);">
+          <span class="rank"></span>
+          <span class="suit"></span>
+        </div>
+
+      </div>
+    </div>
+    <div id="ballon-pop"
+      class="card-container-fluid d-flex flex-wrap ml-60 p-2 justify-content-center align-items-center"
+      style="font-size: 30px; color: white; width: 50%; min-height: 200px;">
+    </div>
+    <!-- Second card container -->
+    <div id="card-container-second" class="card shadow text-white"
+      style="width: 200px; height: 300px; border-radius: 15px; margin: auto; overflow: hidden; position: relative;">
+
+      <!-- Background Image -->
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-QaFoWOUq0O-pPzHOQ4UzZCjcrTfBos4mxg&s"
+        class="card-img" alt="Car Background" style="height: 100%; object-fit: cover;">
+
+      <!-- Content Overlay -->
+      <div class="card-img-overlay p-2 d-flex flex-column justify-content-between">
+
+        <!-- Top corner index -->
+        <div class="card-corner top-left">
+          <!-- span tag is for inline element does not start on a new line and only takes up as much width as its content requires-->
+          <span class="rank-second"></span>
+          <span class="suit-second"></span>
+        </div>
+        <!-- Large center suit -->
+        <div class="card-center-second text-center flex-grow-1 d-flex align-items-center justify-content-center">
+          <h1 style="font-size: 4rem;">♠</h1>
+        </div>
+        <!-- Flipped bottom corner index -->
+        <div class="card-corner bottom-right">
+          <!-- span tag is for inline element does not start on a new line and only takes up as much width as its content requires-->
+          <span class="rank-second"></span>
+          <span class="suit-second"></span>
         </div>
       </div>
-
-
     </div>
   </div>
-
-  <!-- Do not delete this script tag, this is what connects your HTML with the Javascript code -->
-  <script type="module" src="/app.js"></script>
+  
+    <!-- Do not delete this script tag, this is what connects your HTML with the Javascript code -->
+    <script type="module" src="/app.js"></script>
 </body>
 
 </html>

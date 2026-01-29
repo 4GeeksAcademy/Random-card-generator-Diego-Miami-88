@@ -35,5 +35,22 @@ body{
 }
 
 .card-center {
-    font-size: 7rem;
+    font-size: 10rem;
+    margin: auto;
+    line-height: 1;
+}
+
+.card-center-second {
+    font-size: 10rem;
+    margin: auto;
+    line-height: 0.8;
+}
+
+#ballon-pop {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  min-height: 300px;
+  width: 100%;
+  padding: 20px;
 }
