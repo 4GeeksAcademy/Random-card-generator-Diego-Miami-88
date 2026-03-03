@@ -90,8 +90,8 @@ function createBalloon() {
     balloon.addEventListener("click", function (e) {
       makeBalloonDisappear(balloon) // event listner it removes the bg color making it invisible or popped
     })                              
-    balloonPopper.appendChild(balloon)
-    balloonsRemaining++;
+    balloonPopper.appendChild(balloon) // thi injects the newly creted ballon div into your web page and places it as a child insede the ballon pop container
+    balloonsRemaining++; // increment opeartor this insure my code knows exactly how many ballown are cunrrently on the screen 
   }
 
 function refreshBalloons() {
