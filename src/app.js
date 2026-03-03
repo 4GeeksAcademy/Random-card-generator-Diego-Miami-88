@@ -28,19 +28,19 @@ const drawCard = () => { // this initiates the fuction drawCrad()
       el.style.color = color; //here is an example of an spread operator to combine all those elements intoone list and changes their element style.color
     });
 
-    return rank; // Return rank to compare
+    return rank; // Return html return 
   };
 
-  const rank2 = secondCard();
+  const rank2 = secondCard(); // returns the card on the right and returns its rank 
 
   // First card logic
   const suit1 = suits[Math.floor(Math.random() * suits.length)];
   const rank1 = ranks[Math.floor(Math.random() * ranks.length)];
-  const color1 = "♥♦".includes(suit1) ? "red" : "black";
+  const color1 = "♥♦".includes(suit1) ? "red" : "black"; //rankValues lookup the table (object) it concerts strings like "A" or "K" -"14" or "13" into numbers this allows the computer to do math and determine that an Ace beats a King 
   
   const rankElements1 = document.querySelectorAll(".rank");
-  const suitElements1 = document.querySelectorAll(".suit");
-  const centerElement1 = document.querySelector(".card-center");
+  const suitElements1 = document.querySelectorAll(".suit"); // we use querySelector here to find every instance of a class ( like .rank)
+  const centerElement1 = document.querySelector(".card-center"); // 
 
   rankElements1.forEach(el => el.textContent = rank1);
   suitElements1.forEach(el => el.textContent = suit1);
@@ -51,12 +51,12 @@ const drawCard = () => { // this initiates the fuction drawCrad()
   });
 
   // NEW: Comparison Function Logic
-  const titleDisplay = document.querySelector("#gameMiniTitle h2");
-  if (rankValues[rank1] > rankValues[rank2]) {
+  const titleDisplay = document.querySelector("#gameMiniTitle h2"); 
     titleDisplay.textContent = "Left Side Wins!";
   } else if (rankValues[rank1] < rankValues[rank2]) {
+  if (rankValues[rank1] > rankValues[rank2]) {
     titleDisplay.textContent = "Right Side Wins!";
-  } else {
+  } else {  // we use if else here to handle the comparison between Rank 1 and Rank 2 to anounce the winner
     titleDisplay.textContent = "It's a Tie!";
   }
 };
@@ -65,9 +65,9 @@ const balloonPopper = document.querySelector('#ballon-pop');
 const colors = ['red', 'blue', 'green', 'yellow']
 let balloonsRemaining = 0;
 
-window.onload = () => {
+window.onload = () => { //window.onload ensures the code only runs once the HTML is fully loaded preventing errors.
   const refreshBtn = document.querySelector(".btn-info");
-  refreshBtn.addEventListener("click", (event) => {
+  refreshBtn.addEventListener("click", (event) => { // event.preventDfault() stops the page from doing a hard relod alloing javascript to smoothly reset the cards and ballons
     event.preventDefault();
     drawCard();
     refreshBalloons();
@@ -75,7 +75,7 @@ window.onload = () => {
 
   drawCard();
   for (let i = 0; i < 6; i++) {
-    createBalloon()
+    createBalloon() // this function builds a div from scratch using document..createElement. 
   }
 };
 
@@ -88,29 +88,29 @@ function createBalloon() {
     balloon.style.backgroundColor = getRandomColor()
     balloon.className = 'col-3'
     balloon.addEventListener("click", function (e) {
-      makeBalloonDisappear(balloon)
-    })
+      makeBalloonDisappear(balloon) // event listner it removes the bg color making it invisible or popped
+    })                              
     balloonPopper.appendChild(balloon)
     balloonsRemaining++;
   }
 
 function refreshBalloons() {
-  balloonPopper.innerHTML = '';
-  balloonsRemaining = 0;
-  for (let i = 0; i < 6; i++) {
+  balloonPopper.innerHTML = ''; // this wipes the slate clean "it deletes every ballon Div currently inside the container
+  balloonsRemaining = 0; // this resets your counter to zero this is crusial because createBallon() increments this number without reseting it here
+  for (let i = 0; i < 6; i++) { //for loop it runs 6 times to call createBallon
     createBalloon();
   }
 }
 
 function makeBalloonDisappear(balloon) {
   balloon.style.backgroundColor = null
-  balloonsRemaining--;
+  balloonsRemaining--;                    // it substract from the ballonsRemainingcounter
   if (balloonsRemaining === 0) {
-    alert("You popped all the balloons! Game Over!");
+    alert("You popped all the balloons! Game Over!");// it checks if the counter is zero and triggers a game over allert()
   }
 }
 
 function getRandomColor() {
   const randomIndex = Math.floor(Math.random() * colors.length);
-  return colors[randomIndex]
+  return colors[randomIndex] // getRadomColor pulls the string from colors array 
 }
