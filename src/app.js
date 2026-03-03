@@ -61,9 +61,9 @@ const drawCard = () => { // this initiates the fuction drawCrad()
   }
 };
 
-const balloonPopper = document.querySelector('#ballon-pop');
-const colors = ['red', 'blue', 'green', 'yellow']
-let balloonsRemaining = 0;
+const balloonPopper = document.querySelector('#ballon-pop'); // this will targe the HTML element where the ballons will show
+const colors = ['red', 'blue', 'green', 'yellow'] // colors to pick from getRandom() pulss from 
+let balloonsRemaining = 0; // this is your state tracker i use let becuse it must be changeble it increasines when i spam the ballons and drecresesss when i popped them 
 
 window.onload = () => { //window.onload ensures the code only runs once the HTML is fully loaded preventing errors.
   const refreshBtn = document.querySelector(".btn-info");
