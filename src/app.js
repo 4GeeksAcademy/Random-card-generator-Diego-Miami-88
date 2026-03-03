@@ -4,28 +4,28 @@ import "./style.css";
 import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
 
-const drawCard = () => {
-  const suits = ["♠", "♦", "♣", "♥"];
-  const ranks = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
+const drawCard = () => { // this initiates the fuction drawCrad()
+  const suits = ["♠", "♦", "♣", "♥"]; // creates the array for symbols
+  const ranks = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]; // defines the 23 posible values 
   
   // Value mapping to determine which side is higher
   const rankValues = { "A": 14, "K": 13, "Q": 12, "J": 11, "10": 10, "9": 9, "8": 8, "7": 7, "6": 6, "5": 5, "4": 4, "3": 3, "2": 2 };
 
-  const secondCard = () => {
-    const suit = suits[Math.floor(Math.random() * suits.length)];
-    const rank = ranks[Math.floor(Math.random() * ranks.length)];
-    const color = "♥♦".includes(suit) ? "red" : "black";
+  const secondCard = () => { //assigning numerical values
+    const suit = suits[Math.floor(Math.random() * suits.length)]; // pick random item from prevuisly defined arrays
+    const rank = ranks[Math.floor(Math.random() * ranks.length)]; // pick random value
+    const color = "♥♦".includes(suit) ? "red" : "black"; // sets the color if the suit is a hear or dimond. if so it sets the color to "red"
     
-    const rankElements = document.querySelectorAll(".rank-second");
-    const suitElements = document.querySelectorAll(".suit-second");
+    const rankElements = document.querySelectorAll(".rank-second"); //this set the HTML elements using querySelectorAll to find evry element on the page with classes
+    const suitElements = document.querySelectorAll(".suit-second"); // .rank-second and suit-second allows you to update multiple stops on the card like (top left bottom right) in the HTML 
     const centerElement = document.querySelector(".card-center-second h1");
 
     rankElements.forEach(el => el.textContent = rank);
     suitElements.forEach(el => el.textContent = suit);
-    centerElement.textContent = suit;
+    centerElement.textContent = suit; // .forEach  it loops thourgh the elements and sets their textContent
 
     [...rankElements, ...suitElements, centerElement].forEach(el => {
-      el.style.color = color;
+      el.style.color = color; //here is an example of an spread operator to combine all those elements intoone list and changes their element style.color
     });
 
     return rank; // Return rank to compare
